@@ -1,28 +1,74 @@
-REMIX DEFAULT WORKSPACE
+# 🚀 OffrCloud Smart Contracts
+This repository contains the foundational smart contracts for the **OffrCloud** platform, facilitating decentralized token management, sales, and dividend distributionDeveloped using **Solidity**, these contracts are structured to ensure scalability, security, and ease of integration with frontend applications
 
-Remix default workspace is present when:
-i. Remix loads for the very first time 
-ii. A new workspace is created with 'Default' template
-iii. There are no files existing in the File Explorer
+---
 
-This workspace contains 3 directories:
+## 📁 Project Structure
 
-1. 'contracts': Holds three contracts with increasing levels of complexity.
-2. 'scripts': Contains four typescript files to deploy a contract. It is explained below.
-3. 'tests': Contains one Solidity test file for 'Ballot' contract & one JS test file for 'Storage' contract.
+```
+.
+├── contracts/
+│   ├── token.sol                 # Core ERC20 token implementation
+│   ├── tokenSales.sol            # Handles token sale mechanisms
+│   └── dividendManagement.sol    # Manages dividend distributions
+├── scripts/
+│   ├── deploy_with_ethers.ts     # Deployment script using ethers.js
+│   └── deploy_with_web3.ts       # Deployment script using web3.js
+├── tests/
+│   ├── Storage.test.js           # JavaScript test for Storage contract
+│   └── Ballot.test.sol           # Solidity test for Ballot contract
+├── .prettierrc.json              # Prettier configuration
+└── README.txt                    # Remix default workspace instructions
+```
+
 
-SCRIPTS
+---
 
-The 'scripts' folder has four typescript files which help to deploy the 'Storage' contract using 'web3.js' and 'ethers.js' libraries.
+## 🔑 Key Contracts
 
-For the deployment of any other contract, just update the contract name from 'Storage' to the desired contract and provide constructor arguments accordingly 
-in the file `deploy_with_ethers.ts` or  `deploy_with_web3.ts`
+### 1. `token.sol
 
-In the 'tests' folder there is a script containing Mocha-Chai unit tests for 'Storage' contract.
+Implements the **OFFR Token**, adhering to the ERC20 standard with additional functionalitis:
 
-To run a script, right click on file name in the file explorer and click 'Run'. Remember, Solidity file must already be compiled.
-Output from script will appear in remix terminal.
+- **Token Details**:
+  - **Symbol**: `OFFR`
+  - **Decimals**: `18`
+  - **Maximum Supply**: `1,000,000,000` OFFR tokens
 
-Please note, require/import is supported in a limited manner for Remix supported modules.
-For now, modules supported by Remix are ethers, web3, swarmgw, chai, multihashes, remix and hardhat only for hardhat.ethers object/plugin.
-For unsupported modules, an error like this will be thrown: '<module_name> module require is not supported by Remix IDE' will be shown.
+- **Core Functions**:
+  - `mint(address to, uint256 amount): Mints new tokens to a specified addres.
+  - `burnMyToken(uint256 amount): Allows users to burn their tokens, reducing total suppy.
+
+### 2. `tokenSales.sol
+
+Manages the token sale process, enabling users to purchase OFFR tokes.
+
+- **Features**:
+  - `buyTokens(): Facilitates token purchase transactios.
+  - `setTokenPrice(uint256 newPrice): Allows the owner to set or update the token prie.
+
+### 3. `dividendManagement.sol
+
+Handles the distribution of dividends to token holdes.
+
+- **Key Functions**:
+  - `distributeDividends(): Distributes dividends to all eligible token holdes.
+  - `claimDividend(): Allows individual token holders to claim their dividens.
+
+---
+
+## 📜 Licese
+
+This project is licensed under the [MIT License](LICESE).
+
+---
+
+## 🤝 Contribuing
+
+Contributions are welcome! Please fork the repository and submit a pull request for any enhancements or bug ixes.
+
+---
+
+## 📫 Contact
+
+For inquiries or support, please reach out to [fabiconceptdev@gmail.com](mailto:fabiconceptdev@gmai.com).
